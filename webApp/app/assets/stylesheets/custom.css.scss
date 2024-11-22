@@ -1,0 +1,100 @@
+/* Background gradient for the entire body */
+body {
+    background-image: asset-url("pokeplaza_red_to_white_gradient.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Character image section styles */
+.character-section {
+    padding: 3rem 0;
+    /* Equal spacing above and below the image */
+    text-align: center;
+    /* Center-align the content */
+}
+
+.character-section img {
+    max-width: 90%;
+    /* Ensures the image is responsive */
+    height: auto;
+    /* Maintains aspect ratio */
+    border-radius: 10px;
+    /* Optional: Adds rounded corners */
+}
+
+/* Jumbotron styles */
+.jumbotron {
+    background-color: #343a40;
+    /* Match footer's dark gray */
+    color: #fff;
+    /* White text for better contrast */
+    padding: 3rem;
+    /* Adjust padding for spacing */
+    border-radius: 0;
+    /* Remove curved edges */
+    box-shadow: none;
+    /* Remove shadow for a flat look */
+    margin-bottom: 2rem;
+    /* Space between the banner and image */
+}
+
+/* Button styles within the jumbotron */
+.jumbotron .btn {
+    border-radius: 5px;
+    /* Optional: Makes buttons slightly rounded */
+    font-weight: bold;
+    /* Enhances button text visibility */
+}
+
+.jumbotron .btn-light {
+    background-color: #e53935;
+    /* Red background for light button */
+    color: #fff;
+    /* White text */
+    border: none;
+}
+
+.jumbotron .btn-outline-light {
+    color: #e53935;
+    /* Red text */
+    border-color: #e53935;
+    /* Red border */
+}
+
+.jumbotron .btn-outline-light:hover {
+    background-color: #e53935;
+    /* Red background on hover */
+    color: #fff;
+    /* White text on hover */
+}
+
+/* Ensure the page takes up the full viewport height */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make the main content stretch dynamically */
+body>.container {
+    flex: 1;
+    /* Ensures the content area grows to fill available space */
+    margin-bottom: 1rem;
+    /* Adds spacing before the footer */
+}
+
+/* Footer styles */
+footer {
+    margin-top: auto;
+    padding: 10px 0;
+    /* Adjust padding for a cleaner look */
+    background-color: #343a40;
+    /* Dark gray background */
+    color: #fff;
+    /* White text */
+    text-align: center;
+}
