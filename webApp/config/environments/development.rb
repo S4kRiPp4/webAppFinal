@@ -43,7 +43,7 @@ Rails.application.configure do
 
   # Default URL options for the mailer
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -76,4 +76,10 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # Allow web console access from Docker or other networks
+  config.web_console.whitelisted_ips = '172.17.0.1'
+
+  # Allow Rails Console access from specific IPs in development
+  config.web_console.whitelisted_ips = '0.0.0.0/0' # Optional: Expand range for wider access
 end

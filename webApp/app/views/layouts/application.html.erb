@@ -19,7 +19,7 @@
       crossorigin="anonymous"
     />
 
-    <!-- Bootstrap JS: Provides interactive Bootstrap components (e.g., modals, tooltips) -->
+    <!-- Bootstrap JS: Provides interactive Bootstrap components -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       defer
@@ -47,9 +47,12 @@
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><%= link_to 'Home', root_path, class: 'nav-link' %></li>
             <% if user_signed_in? %>
-              <li class="nav-item"><%= link_to 'Your Pokémon', user_pokemon_path, class: 'nav-link' %></li>
-              <li class="nav-item"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
+              <li class="nav-item"><%= link_to 'Your Pokémon', pokemons_path, class: 'nav-link' %></li>
+              <li class="nav-item">
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
             <% else %>
+              <li class="nav-item"><%= link_to 'Explore Pokémon', explore_pokemon_path, class: 'nav-link' %></li>
               <li class="nav-item"><%= link_to 'Login', new_user_session_path, class: 'nav-link' %></li>
               <li class="nav-item"><%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %></li>
             <% end %>
@@ -67,13 +70,17 @@
           and keep track of your favorite Pokémon. 
           Future updates will include integration with live Pokémon data via APIs!
         </p>
-        <%= link_to 'Sign Up Now', new_user_registration_path, class: 'btn btn-light btn-lg mx-2' %>
-        <%= link_to 'Explore Pokémon', explore_pokemon_path, class: 'btn btn-outline-light btn-lg mx-2' %>
+        <% if user_signed_in? %>
+          <%= link_to 'Explore Your Collection', pokemons_path, class: 'btn btn-outline-light btn-lg mx-2' %>
+        <% else %>
+          <%= link_to 'Explore Pokémon', explore_pokemon_path, class: 'btn btn-outline-light btn-lg mx-2' %>
+          <%= link_to 'Sign Up Now', new_user_registration_path, class: 'btn btn-light btn-lg mx-2' %>
+        <% end %>
       </div>
 
       <!-- Character Image Section -->
       <div class="character-section">
-        <img src="<%= asset_path('pokeplaza.jpg') %>" alt="PokePlaza Characters" class="img-fluid">
+        <img src="<%= asset_path('pokeplaza.jpg') %>" alt="PokéPlaza Characters" class="img-fluid">
       </div>
     <% end %>
 

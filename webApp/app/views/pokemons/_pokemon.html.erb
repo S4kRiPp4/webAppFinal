@@ -1,0 +1,30 @@
+<div class="col-md-4 mb-4 pokemon-card pokemon-item" id="<%= dom_id pokemon %>">
+  <div class="card">
+    <div class="card-body">
+      <!-- Pokémon Name -->
+      <h3 class="card-title">
+        <%= pokemon.name %> (<%= pokemon.pokedex_number %>)
+      </h3>
+
+      <!-- Pokémon Type -->
+      <p class="card-text">
+        <strong>Type:</strong> <%= pokemon.types.present? ? pokemon.types.split(",").join(", ") : "N/A" %>
+      </p>
+
+      <% if user_signed_in? %>
+        <!-- Nickname -->
+        <p class="card-text">
+          <strong>Nickname:</strong> <%= pokemon.nickname.presence || "None" %>
+        </p>
+
+        <!-- View Details Button -->
+        <%= link_to "View Details", pokemon_path(pokemon), class: "btn btn-primary mt-2" %>
+      <% else %>
+        <!-- Prompt to Sign In (for Guests) -->
+        <p class="text-muted text-center">
+          <em>Sign in to add Pokémon to your collection!</em>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

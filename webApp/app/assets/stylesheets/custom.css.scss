@@ -10,67 +10,47 @@ body {
 /* Character image section styles */
 .character-section {
     padding: 3rem 0;
-    /* Equal spacing above and below the image */
     text-align: center;
-    /* Center-align the content */
 }
 
 .character-section img {
     max-width: 90%;
-    /* Ensures the image is responsive */
     height: auto;
-    /* Maintains aspect ratio */
     border-radius: 10px;
-    /* Optional: Adds rounded corners */
 }
 
 /* Jumbotron styles */
 .jumbotron {
     background-color: #343a40;
-    /* Match footer's dark gray */
     color: #fff;
-    /* White text for better contrast */
     padding: 3rem;
-    /* Adjust padding for spacing */
     border-radius: 0;
-    /* Remove curved edges */
     box-shadow: none;
-    /* Remove shadow for a flat look */
     margin-bottom: 2rem;
-    /* Space between the banner and image */
 }
 
-/* Button styles within the jumbotron */
 .jumbotron .btn {
     border-radius: 5px;
-    /* Optional: Makes buttons slightly rounded */
     font-weight: bold;
-    /* Enhances button text visibility */
 }
 
 .jumbotron .btn-light {
     background-color: #e53935;
-    /* Red background for light button */
     color: #fff;
-    /* White text */
     border: none;
 }
 
 .jumbotron .btn-outline-light {
     color: #e53935;
-    /* Red text */
     border-color: #e53935;
-    /* Red border */
 }
 
 .jumbotron .btn-outline-light:hover {
     background-color: #e53935;
-    /* Red background on hover */
     color: #fff;
-    /* White text on hover */
 }
 
-/* Ensure the page takes up the full viewport height */
+/* Full-page layout adjustments */
 html,
 body {
     height: 100%;
@@ -79,22 +59,66 @@ body {
     flex-direction: column;
 }
 
-/* Make the main content stretch dynamically */
+/* Main content adjustments */
 body>.container {
     flex: 1;
-    /* Ensures the content area grows to fill available space */
     margin-bottom: 1rem;
-    /* Adds spacing before the footer */
 }
 
 /* Footer styles */
 footer {
     margin-top: auto;
-    padding: 10px 0;
-    /* Adjust padding for a cleaner look */
+    padding: 15px 10px;
     background-color: #343a40;
-    /* Dark gray background */
     color: #fff;
-    /* White text */
     text-align: center;
+}
+
+/* Pokémon list styles */
+#pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    /* Center cards within the row */
+}
+
+.pokemon-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: #f8f9fa;
+    min-height: 200px;
+    border-radius: 5px;
+    /* Add consistent rounded corners */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Add hover effects */
+}
+
+.pokemon-card:hover {
+    transform: scale(1.05);
+    /* Slight zoom effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styles for "Add to Collection" */
+.btn-add-to-collection {
+    background-color: #e53935;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-add-to-collection:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+    /* Add hover effect */
+}
+
+.btn-add-to-collection:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
 }

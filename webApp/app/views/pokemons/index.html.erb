@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Explore Pokémon</h1>
+
+  <!-- Search Bar -->
+  <div class="mb-4">
+    <form id="search-form" action="<%= user_signed_in? ? pokemons_path : explore_pokemon_path %>" method="get">
+      <div class="input-group">
+        <input 
+          type="text" 
+          name="search" 
+          class="form-control" 
+          placeholder="Search Pokémon by Name or Pokédex #" 
+          value="<%= params[:search] %>" 
+        />
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Pokémon List -->
+  <div id="pokemon-list" class="row">
+    <% if @pokemons.any? %>
+      <%= render @pokemons %>
+    <% else %>
+      <% if params[:search].present? %>
+        <p class="text-center text-muted">No Pokémon found. Try refining your search!</p>
+      <% else %>
+        <p class="text-center text-muted">
+          <%= user_signed_in? ? "Your collection is empty. Start by adding Pokémon!" : "No Pokémon available. Sign in to build your collection!" %>
+        </p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <!-- Load More Button -->
+  <% if @pokemons.size >= 10 %>
+    <div class="text-center mt-4">
+      <%= button_to "Load More Pokémon", user_signed_in? ? pokemons_path(offset: (params[:offset].to_i || 0) + @pokemons.size) : explore_pokemon_path(offset: (params[:offset].to_i || 0) + @pokemons.size), method: :get, remote: true, id: "load-more-button", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <!-- View My Collection (for logged-in users) -->
+  <% if user_signed_in? %>
+    <div class="text-center mt-4">
+      <%= link_to "View My Collection", pokemons_path, class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>
