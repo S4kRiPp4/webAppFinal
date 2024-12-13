@@ -32,3 +32,6 @@
 /docker-compose.override.yml
 /docker-compose.yml
 /Dockerfile
+
+# Ignore specific files
+../webApp.zip
